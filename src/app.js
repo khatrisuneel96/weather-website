@@ -3,6 +3,9 @@ const path = require('path')
 const hbs = require('hbs')
 const app = express()
 
+//This process.env.port only work on Heroku
+const port = process.env.PORT || 3000
+
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
@@ -90,4 +93,4 @@ app.get('*', (req,res) => {
     })
 })
 
-app.listen(3000, ()=> console.log('Server Connected'))
+app.listen(port, ()=> console.log('Server is running on port ' + port))
